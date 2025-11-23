@@ -1,0 +1,28 @@
+# Visual Studio temporary files, build results, etc
+.vs/
+*.user
+*.suo
+*.vcxproj.user
+*.ncb
+*.sdf
+*.opensdf
+*.cache
+*.log
+
+# Build folders
+Debug/
+Release/
+build/
+bin/
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# SFML/Box2D binaries
+*.exe
+*.dll
+*.lib
+*.obj
+*.o
+*.pdb
