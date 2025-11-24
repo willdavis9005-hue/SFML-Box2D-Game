@@ -5,16 +5,17 @@
 class Game {
 public:
 	Game();
+	~Game(); // Destructor to delete physics
 	void run();
 
 private:
 	void update();
 	void render();
 
+	Physics *physics;
 	sf::RenderWindow window;
 	sf::Texture texture;
 	std::optional<sf::Sprite> sprite;
 	sf::Music music;
-
-	Physics physics;
+	bool jumpHeld = false;
 };
