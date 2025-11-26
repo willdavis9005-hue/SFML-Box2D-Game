@@ -18,6 +18,21 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\Camera.hpp" />
+    <ClInclude Include="include\Common.hpp" />
+    <ClInclude Include="include\Game.hpp" />
+    <ClInclude Include="include\Libraries.hpp" />
+    <ClInclude Include="include\Physics.hpp" />
+    <ClInclude Include="include\Terrain.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Camera.cpp" />
+    <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Physics.cpp" />
+    <ClCompile Include="src\Terrain.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>18.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -105,7 +120,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>C:\Libraries\SFML-3.0.2\include;C:\Libraries\Box2d-2.4.1\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Libraries\SFML-3.0.2\include;$(ProjectDir)\include;C:\Libraries\Box2d-2.4.1\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -129,21 +144,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="Camera.cpp" />
-    <ClCompile Include="Game.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="Physics.cpp" />
-    <ClCompile Include="Terrain.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Camera.hpp" />
-    <ClInclude Include="Common.hpp" />
-    <ClInclude Include="Game.hpp" />
-    <ClInclude Include="Libraries.hpp" />
-    <ClInclude Include="Physics.hpp" />
-    <ClInclude Include="Terrain.hpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
