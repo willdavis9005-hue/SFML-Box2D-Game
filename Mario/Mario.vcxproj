@@ -130,15 +130,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Physics.cpp" />
+    <ClCompile Include="Terrain.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Camera.hpp" />
     <ClInclude Include="Common.hpp" />
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="Libraries.hpp" />
     <ClInclude Include="Physics.hpp" />
+    <ClInclude Include="Terrain.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
