@@ -10,7 +10,7 @@ Game::Game() {
         throw std::runtime_error("Failed to load texture");
 
     physics = new Physics(texture.getSize().x, texture.getSize().y);
-    terrain = new Terrain(physics->world);
+    terrain = new Terrain(physics->getWorld());
 	terrain->generateInitialTerrain();
 
     sprite.emplace(texture);
@@ -19,6 +19,7 @@ Game::Game() {
 
 Game::~Game() {
     delete physics;
+    delete terrain;
 }
 
 // Update the state of the game
@@ -30,13 +31,13 @@ void Game::update() {
     }
 
     b2Body* player = physics->getPlayer();
-    player->SetGravityScale(.9f);
+    if(player) player->SetGravityScale(.9f);
 
     //Player controls
     if (player) {
         float moveSpeed = 10.f;
         float acceleration = 0.2f;
-        float jumpForce = 500.f;
+        float jumpForce = 200.f;
 
         // Horizontal movement
         b2Vec2 targetVel(0, 0);
@@ -65,7 +66,7 @@ void Game::update() {
         sprite->setPosition(sf::Vector2f(pos.x * SCALE, pos.y * SCALE));
 
         // Optional: linear damping for natural deceleration
-        player->SetLinearDamping(2.f);
+        player->SetLinearDamping(0.10f);
 
         //Update camera & terrain
         terrain->update(player->GetPosition().x * SCALE);
@@ -79,8 +80,10 @@ void Game::update() {
 // Refresh the screen
 void Game::render() {
     window.clear();
+    window.setView(camera.getView());
     if (sprite) window.draw(*sprite);
-	window.setView(camera.getView());
+    for (auto& chunk : terrain->visuals)
+        window.draw(chunk);
     window.display();
 }
 

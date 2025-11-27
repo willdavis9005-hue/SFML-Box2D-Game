@@ -41,7 +41,7 @@ Physics::Physics(float playerWidth, float playerHeight) : listener(this){
 	footShape.SetAsBox(
 	(playerHalfWidth / SCALE) * .85f,
 	.05f,
-	b2Vec2(0.f, playerHalfHeight / SCALE),
+	b2Vec2(0.f, (playerHalfHeight / SCALE) + 0.05f),
 	0.f
 	);
 	b2FixtureDef footFix;
@@ -79,5 +79,6 @@ bool Physics::isPlayerOnGround() {
 	return grounded;
 }
 
+b2World* Physics::getWorld() { return world; }
 b2Body *Physics::getPlayer() { return player; }
 b2Body *Physics::getFloor() { return floor; }

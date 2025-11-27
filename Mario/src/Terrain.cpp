@@ -1,8 +1,7 @@
 #include "Terrain.hpp"
 
-static constexpr float SCALE = 30.f;
-
 Terrain::Terrain(b2World *world) : world(world) {}
+
 
 //Create Chunk
 b2Body *Terrain::createChunk(float x, float width) {
@@ -12,6 +11,14 @@ b2Body *Terrain::createChunk(float x, float width) {
 	b2PolygonShape shape;
 	shape.SetAsBox(width / 2.f / SCALE, 10.f / SCALE);
 	body->CreateFixture(&shape, 0.f);
+	//Visual rectangle
+	sf::RectangleShape rect;
+	rect.setSize({ width, 20.f });
+	rect.setOrigin(sf::Vector2f(width / 2.f, 10.f));
+	rect.setPosition(sf::Vector2f(x, 580.f));
+	rect.setFillColor(sf::Color::Green);
+	visuals.push_back(rect);
+
 	return body;
 }
 //Initial terrain
@@ -26,7 +33,7 @@ void Terrain::update(float playerX) {
 		lastChunkX += width;
 	}
 }
-//Getter
+//Getters
 const std::vector<b2Body*> &Terrain::getChunks() const {
 	return chunks;
 }

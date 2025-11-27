@@ -26,6 +26,7 @@ public:
 		void EndContact(b2Contact* contact) override;
 	};
 	ContactListener listener;
+	b2World* getWorld();
 private:
 	b2World *world;
 	b2Body *player;
